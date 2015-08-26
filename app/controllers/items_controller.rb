@@ -10,6 +10,14 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
+    if user_signed_in?
+      # Post an action to suggestgrid
+      body = SuggestGrid::Action.new
+      body.userid = current_user.id.to_s
+      body.itemid = @item.id.to_s
+
+      @@action_controller.create_action(body, 'space', 'show')
+    end
   end
 
   # GET /items/new

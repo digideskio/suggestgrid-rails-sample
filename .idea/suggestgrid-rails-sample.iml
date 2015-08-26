@@ -123,6 +123,16 @@
     </content>
     <orderEntry type="jdk" jdkName="RVM: ruby-2.2.2 [suggestgrid-rails-sample]" jdkType="RUBY_SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="suggest_grid (v0.0.5, /Users/emrehan/sebula/suggest_grid_ruby) [path][gem]">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../suggest_grid_ruby/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../suggest_grid_ruby/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
     <orderEntry type="library" scope="PROVIDED" name="actionmailer (v4.2.4, RVM: ruby-2.2.2 [suggestgrid-rails-sample]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="actionpack (v4.2.4, RVM: ruby-2.2.2 [suggestgrid-rails-sample]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="actionview (v4.2.4, RVM: ruby-2.2.2 [suggestgrid-rails-sample]) [gem]" level="application" />
@@ -130,6 +140,7 @@
     <orderEntry type="library" scope="PROVIDED" name="activemodel (v4.2.4, RVM: ruby-2.2.2 [suggestgrid-rails-sample]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activerecord (v4.2.4, RVM: ruby-2.2.2 [suggestgrid-rails-sample]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activesupport (v4.2.4, RVM: ruby-2.2.2 [suggestgrid-rails-sample]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="addressable (v2.3.8, RVM: ruby-2.2.2 [suggestgrid-rails-sample]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="arel (v6.0.3, RVM: ruby-2.2.2 [suggestgrid-rails-sample]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bcrypt (v3.1.10, RVM: ruby-2.2.2 [suggestgrid-rails-sample]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="binding_of_caller (v0.7.2, RVM: ruby-2.2.2 [suggestgrid-rails-sample]) [gem]" level="application" />
@@ -166,6 +177,7 @@
     <orderEntry type="library" scope="PROVIDED" name="rake (v10.4.2, RVM: ruby-2.2.2 [suggestgrid-rails-sample]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rdoc (v4.2.0, RVM: ruby-2.2.2 [suggestgrid-rails-sample]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="responders (v2.1.0, RVM: ruby-2.2.2 [suggestgrid-rails-sample]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rest-client (v1.6.7, RVM: ruby-2.2.2 [suggestgrid-rails-sample]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sass (v3.4.17, RVM: ruby-2.2.2 [suggestgrid-rails-sample]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sass-rails (v5.0.3, RVM: ruby-2.2.2 [suggestgrid-rails-sample]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sdoc (v0.4.1, RVM: ruby-2.2.2 [suggestgrid-rails-sample]) [gem]" level="application" />
@@ -179,6 +191,7 @@
     <orderEntry type="library" scope="PROVIDED" name="turbolinks (v2.5.3, RVM: ruby-2.2.2 [suggestgrid-rails-sample]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tzinfo (v1.2.2, RVM: ruby-2.2.2 [suggestgrid-rails-sample]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="uglifier (v2.7.1, RVM: ruby-2.2.2 [suggestgrid-rails-sample]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="unirest (v1.1.2, RVM: ruby-2.2.2 [suggestgrid-rails-sample]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="warden (v1.2.3, RVM: ruby-2.2.2 [suggestgrid-rails-sample]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="web-console (v2.2.1, RVM: ruby-2.2.2 [suggestgrid-rails-sample]) [gem]" level="application" />
   </component>
