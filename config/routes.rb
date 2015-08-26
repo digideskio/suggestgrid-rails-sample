@@ -57,6 +57,6 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  root 'users#index'
+  root 'items#index'
 
 end
