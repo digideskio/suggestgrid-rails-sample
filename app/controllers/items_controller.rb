@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  include UsersHelper
+
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   # GET /items
@@ -66,6 +68,22 @@ class ItemsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  # GET /items/:itemid/rating/:rating
+  def rate
+    @rating = Rating.new
+    @rating.userid = current_user.id
+    @rating.itemid = params[:itemid]
+    @rating.rating = params[:rating]
+
+    respond_to do |format|
+      if @rating.save
+        format.js {  }
+      else
+        format.js {render partial: 'errors', status: :unprocessable_entity }
+      end
     end
   end
 

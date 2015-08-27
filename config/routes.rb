@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :ratings
   devise_for :users
   resources :items
   resources :users
@@ -58,5 +59,7 @@ Rails.application.routes.draw do
   #   end
 
   root 'items#index'
+
+  get '/items/:itemid/rating/:rating' => 'items#rate', as: :rate_item
 
 end
