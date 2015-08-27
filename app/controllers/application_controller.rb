@@ -5,7 +5,9 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  @@action_controller = SuggestGrid::ActionController.new("osman", "key1")
+
+  # Global Suggestgrid Controllers
+  $sg_action_controller = SuggestGrid::ActionController.new("osman", "key1")
 
   protected
 
