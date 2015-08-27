@@ -10,25 +10,29 @@
 
 <body>
 
+<%= link_to('Home', items_path) %>
+
 <% if user_signed_in? %>
     <li>
       <p>
-        Welcome <%= current_user.email %> |
+        Welcome <%= current_user.name %> |
         <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
       </p>
 
     </li>
 <% else %>
     <li>
-      <%= link_to('Login', new_user_session_path)  %>
+      <%= link_to('Sign Up', new_user_registration_path) %>
+      or
+      <%= link_to('Login', new_user_session_path) %>
     </li>
 <% end %>
 
-<%= link_to 'Home', items_path %>
-
-<p>_____________________________________</p>
+<p style="color:gray">________________________________</p>
 
 <%= yield %>
+
+<p style="color:gray">_________________________________</p>
 
 </body>
 </html>
