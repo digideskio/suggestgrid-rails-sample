@@ -7,6 +7,6 @@ class Rating < ActiveRecord::Base
     body.itemid = itemid.to_s
     body.rating = rating
 
-    $sg_action_controller.create_action(body, 'space', 'rating')
+    SuggestGrid::ActionController.new.create_action(body, 'space', 'rating')
   end
 end

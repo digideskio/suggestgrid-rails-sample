@@ -5,13 +5,8 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  # Global SuggestGrid Variables
-  $space = "space"
-  $recommendation_size = 3
-
-  # Global SuggestGrid Controllers
-  $sg_action_controller = SuggestGrid::ActionController.new("osman", "key1")
-  $sg_recommendation_controller = SuggestGrid::RecommendationController.new("osman", "key1")
+  SuggestGrid::Configuration.basic_auth_user_name = 'osman'
+  SuggestGrid::Configuration.basic_auth_password = 'key1'
 
   protected
 

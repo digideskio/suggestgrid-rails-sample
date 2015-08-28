@@ -5,13 +5,19 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   def recommend_itemids
-    body = SuggestGrid::RecommendItemsBody.new
-    body.userid = id.to_s
-    body.size = $recommendation_size
+    begin
+      body = SuggestGrid::RecommendItemsBody.new
+      body.userid = id.to_s
+      body.size = 3
 
-    recommendations = $sg_recommendation_controller.create_recommend_items(body, $space, "rating")
-    puts "recommendations: "
-    puts recommendations
-    recommendations["recommendations"]["itemids"]
+      recommendations = SuggestGrid::RecommendationController.new.recommend_items(body, 'space', 'rating')
+      puts 'recommendations'
+      puts recommendations
+      puts 'recommendations'
+      recommendations['recommendations']['itemids']
+    rescue
+      puts $!
+      []
+    end
   end
 end
