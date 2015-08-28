@@ -25,6 +25,20 @@
   </tag>
 <% end %>
 
+<% if user_signed_in? %>
+    <tag>
+      Recommended Items:
+      <% recommendations = current_user.recommend_itemids %>
+      <% recommendations.each { |itemid| %>
+          <%= link_to(Item.find(itemid.to_i).description , item_path(itemid.to_i)) %>
+      <% } %>
+      <br>
+    </tag>
+
+
+<% end %>
+
+
 <%= link_to 'New Item', new_item_path %> |
 <%= link_to 'Edit', edit_item_path(@item) %> |
 <%= link_to 'Back', items_path %>
