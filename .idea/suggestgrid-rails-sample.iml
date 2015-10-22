@@ -124,12 +124,12 @@
     <orderEntry type="jdk" jdkName="RVM: ruby-2.2.2 [suggestgrid-rails-sample]" jdkType="RUBY_SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
-      <library name="suggest_grid (v0.0.5, /Users/emrehan/sebula/suggest_grid_ruby) [path][gem]">
+      <library name="suggest_grid (v1.0, /Users/emrehan/sebula/SuggestGrid-Ruby) [path][gem]">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../suggest_grid_ruby/lib" />
+          <root url="file://$MODULE_DIR$/../SuggestGrid-Ruby/lib" />
         </CLASSES>
         <SOURCES>
-          <root url="file://$MODULE_DIR$/../suggest_grid_ruby/lib" />
+          <root url="file://$MODULE_DIR$/../SuggestGrid-Ruby/lib" />
         </SOURCES>
       </library>
     </orderEntry>

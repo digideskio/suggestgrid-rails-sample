@@ -47,4 +47,4 @@ end
 
 gem 'devise'
 
-gem 'suggest_grid', path: '/Users/emrehan/sebula/suggest_grid_ruby'
+gem 'suggest_grid', path: '/Users/emrehan/sebula/SuggestGrid-Ruby'

@@ -1,7 +1,7 @@
 PATH
-  remote: /Users/emrehan/sebula/suggest_grid_ruby
+  remote: /Users/emrehan/sebula/SuggestGrid-Ruby
   specs:
-    suggest_grid (0.0.5)
+    suggest_grid (1.0)
       unirest (~> 1.1.2)
 
 GEM
