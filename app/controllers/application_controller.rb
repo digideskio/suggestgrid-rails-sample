@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  SuggestGrid::Configuration.basic_auth_user_name = 'osman'
-  SuggestGrid::Configuration.basic_auth_password = 'key1'
+  SuggestGrid::Configuration.basic_auth_user_name = 'account'
+  SuggestGrid::Configuration.basic_auth_password = 'key'
 
   protected
 
