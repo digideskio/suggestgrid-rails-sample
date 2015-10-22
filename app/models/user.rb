@@ -11,11 +11,9 @@ class User < ActiveRecord::Base
       body.size = 3
 
       recommendations = SuggestGrid::RecommendationController.new.recommend_items(body, 'space', 'rating')
-      puts 'recommendations'
-      puts recommendations
-      puts 'recommendations'
       recommendations['recommendations']['itemids']
     rescue
+      puts 'Exception while getting recommendations:'
       puts $!
       []
     end
