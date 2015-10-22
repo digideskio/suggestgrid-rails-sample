@@ -28,7 +28,7 @@
 <% if user_signed_in? %>
     <tag>
       Recommended Items:
-      <% recommendations = current_user.recommend_itemids %>
+      <% recommendations = current_user.recommend_itemids @item.id%>
       <% recommendations.each { |itemid| %>
           <%= link_to(Item.find(itemid.to_i).description , item_path(itemid.to_i)) %>
       <% } %>
