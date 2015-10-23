@@ -6,9 +6,6 @@ class User < ActiveRecord::Base
 
   def recommend_itemids(itemid)
     begin
-      # puts 'itemid is '
-      # puts itemid
-
       body = SuggestGrid::RecommendItemsBody.new
       body.userid = id.to_s
       body.size = 3
