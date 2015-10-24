@@ -14,7 +14,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-    
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -48,7 +48,7 @@
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"> Welcome <%= current_or_guest_user.id %> </a></li>
+                    <li><a href="#"> Welcome <%= current_or_guest_user.name %> </a></li>
                     <% if user_signed_in? %>
                       <li><%= link_to('Sign Out', destroy_user_session_path, method: :delete) %></li>
                     <% else %>
