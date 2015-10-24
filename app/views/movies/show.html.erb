@@ -15,22 +15,24 @@
       </div>
       <div class="row">
         <div class="col-md-12">
-          <h4>Personalised Similar Movies</h4>
+          <h4>Personalised Similar Movies (Movies You May Like)</h4>
           <hr>
+          <% @movie.recommend_similar(current_or_guest_user, 12).each_slice(3).each do |group| %>
             <div class="row">
-            <% Movie.all.limit(4).each do |movie| %>
-              <div class="col-sm-3 col-lg-3 col-md-3">
-                <%= render 'movie', {movie: movie, overview: false} %>
-              </div>
-            <% end %>
+                <% group.each do |movie| %>
+                <div class="col-sm-3 col-lg-3 col-md-3">
+                  <%= render 'movie', {movie: movie, overview: false} %>
+                </div>
+                <% end %>
             </div>
+          <% end %>
         </div>
       </div>
     </div>
     <div class="col-md-3">
       <h3>Similar Movies</h3>
       <hr>
-      <% Movie.all.limit(2).each do |movie| %>
+      <% @movie.similar(5).each do |movie| %>
         <div class="row">
           <div class="col-sm-12 col-lg-12 col-md-12">
                 <%= render 'movie', {movie: movie, overview: false} %>

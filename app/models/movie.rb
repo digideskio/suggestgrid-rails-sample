@@ -5,8 +5,8 @@ class Movie < ActiveRecord::Base
   def create_action(user)
     begin
       body = SuggestGrid::Action.new
-      body.userid = user.id
-      body.itemid = self.id
+      body.userid = user.id.to_s
+      body.itemid = self.id.to_s
       SuggestGrid::ActionController.new.create_action(body, 'movie_space', 'movie')
     rescue Exception => e
       logger.error "Exception while sending action  #{e}"

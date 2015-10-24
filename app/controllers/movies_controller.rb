@@ -1,7 +1,8 @@
 class MoviesController < ApplicationController
 
   def index
-    @movies = Movie.all.limit(4)
+    @recommended_movies = Movie.recommend(current_or_guest_user, 4)
+    @all_movies = Movie.all
   end
 
   def show

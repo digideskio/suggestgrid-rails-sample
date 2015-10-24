@@ -40,6 +40,6 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   SuggestGrid::Configuration.basic_auth_user_name = 'account'
-  SuggestGrid::Configuration.basic_auth_password = 'key'
+  SuggestGrid::Configuration.basic_auth_password = '54lNCZo00YSzOc9XEvbOQWZyrkz4hU33'
 
 end
