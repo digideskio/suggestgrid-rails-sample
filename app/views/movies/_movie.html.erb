@@ -1,0 +1,9 @@
+<div class="thumbnail">
+    <%= image_tag movie.poster_path %>
+    <div class="caption">
+        <h4><%=link_to movie.title, movie_path(movie)%></h4>
+        <% if overview %>
+          <p><%= h truncate(movie.overview, length: 80) %></p>
+        <% end %>
+    </div>
+</div>

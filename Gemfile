@@ -47,4 +47,8 @@ end
 
 gem 'devise'
 
-gem 'suggest_grid', path: '/Users/emrehan/sebula/SuggestGrid-Ruby'
+gem 'suggest_grid', path: '/Users/ferhat/Development/suggestgrid/SuggestGrid-Ruby'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-bootstrap'
+end

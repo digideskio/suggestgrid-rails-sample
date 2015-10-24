@@ -1,37 +1,94 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>SuggestgridRailsSample</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SuggestGrid Rails Sample</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+
+    <!-- Custom CSS -->
+    <link href="css/shop-homepage.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
 </head>
 
 <body>
 
-<%= link_to('Home', items_path) %>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Suggestgrid - Rails Sample</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/">Movie</a>
+                    </li>
+                    <li>
+                        <a href="#">E-Commerce</a>
+                    </li>
+                    <li>
+                        <a href="#">Content</a>
+                    </li>
+                </ul>
 
-<% if user_signed_in? %>
-    <li>
-      <p>
-        Welcome <%= current_user.name %> |
-        <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-      </p>
-    </li>
-<% else %>
-    <li>
-      <%= link_to('Sign Up', new_user_registration_path) %>
-      or
-      <%= link_to('Login', new_user_session_path) %>
-    </li>
-<% end %>
+                <ul class="nav navbar-nav navbar-right">
+                    <li> Welcome <%= current_or_guest_user.name %> </li>
+                    <% if user_signed_in? %>
+                      <%= link_to('Sign Out', destroy_user_session_path, method: :delete) %>
+                    <% else %>
+                      <li><%= link_to('Sign Up', new_user_registration_path) %></li>
+                      <li><%= link_to('Sign In', new_user_session_path) %></li>
+                    <% end %>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
 
-<p style="color:gray">________________________________</p>
+    <!-- Page Content -->
+    <div class="container">
 
-<%= yield %>
+      <%= yield %>
 
-<p style="color:gray">_________________________________</p>
+    </div>
+    <!-- /.container -->
+
+    <div class="container">
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; SuggestGrid - Movie Data www.themoviedb.org</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
 
 </body>
+
 </html>
