@@ -5,8 +5,8 @@ class Movie < ActiveRecord::Base
   def create_action(user)
     begin
       body = SuggestGrid::Action.new
-      body.userid = user.id.to_s
-      body.itemid = self.id.to_s
+      body.userid = user.id
+      body.itemid = self.id
       SuggestGrid::ActionController.new.create_action(body, 'movie_space', 'movie')
     rescue Exception => e
       logger.error "Exception while sending action  #{e}"
@@ -14,13 +14,13 @@ class Movie < ActiveRecord::Base
   end
 
   # this is behavioral recommendation special to given user
-  def self.recommend(user, size)
+  def self.recommend(user, size = 3)
     begin
       body = SuggestGrid::RecommendItemsBody.new
       body.userid = user.id # recommend specific to given user
       body.size = size
       recommendations = SuggestGrid::RecommendationController.new.recommend_items(body, 'movie_space', 'movie')
-      Movie.find(recommendations['recommendations']['itemids'])
+      Movie.find(recommendations['recommendations']['itemids']) # fetch from db
     rescue Exception => e
       logger.error "Exception while getting recommendations #{e}"
       Movie.all.limit(size)
@@ -36,7 +36,7 @@ class Movie < ActiveRecord::Base
       body.similar_itemid = self.id # recommend movie similar to this movie
       body.except = [self.id] # exclude this movie from recommendations
       recommendations = SuggestGrid::RecommendationController.new.recommend_items(body, 'movie_space', 'movie')
-      Movie.find(recommendations['recommendations']['itemids'])
+      Movie.find(recommendations['recommendations']['itemids']) # fetch from db
     rescue Exception => e
       logger.error "Exception while getting similar recommendations #{e}"
       Movie.all.limit(size)
@@ -48,10 +48,10 @@ class Movie < ActiveRecord::Base
     begin
       body = SuggestGrid::SimilarItemsBody.new
       body.size = size
-      body.except = [self.id]
+      body.except = [self.id] # exclude this movie from similars
       similars = SuggestGrid::SimilarityController.new.get_similar_items(body, self.id , 'movie_space', 'movie')
-      Movie.find(similars['similars']['itemids'])
-    rescue
+      Movie.find(similars['similars']['itemids']) # fetch from db
+    rescue Exception => e
       logger.error "Exception while getting similar items #{e}"
       Movie.all.limit(size)
     end
