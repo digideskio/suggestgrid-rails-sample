@@ -1,7 +1,7 @@
 class CreateMovies < ActiveRecord::Migration
   def change
     create_table :movies do |t|
-      t.string :genres,  array: true
+      t.string :genres,  array: true, default: '{}'
       t.string :title
       t.string :overview
       t.string :poster_path
