@@ -39,7 +39,7 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
-  sg_uri = URI('http://admin:7f830b5a2c1708c6096d2d465205f0f9@b7153ed8-d205-4688-95c0-4724ec162c30.suggestgrid.com')
+  sg_uri = URI(ENV['SUGGESTGRID_URL'])
   SuggestGrid::Configuration.basic_auth_user_name = sg_uri.user
   SuggestGrid::Configuration.basic_auth_password = sg_uri.password
   SuggestGrid::Configuration::BASE_URI = sg_uri.to_s
