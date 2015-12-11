@@ -40,6 +40,8 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
+  onfig.suggestgrid_space = "movie_space_test"
+
   sg_uri = URI(ENV['SUGGESTGRID_URL'])
   SuggestGrid::Configuration.basic_auth_user_name = sg_uri.user
   SuggestGrid::Configuration.basic_auth_password = sg_uri.password

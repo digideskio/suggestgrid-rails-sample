@@ -77,9 +77,11 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  config.suggestgrid_space = "movie_space_production"
+
   sg_uri = URI(ENV['SUGGESTGRID_URL'])
   SuggestGrid::Configuration.basic_auth_user_name = sg_uri.user
   SuggestGrid::Configuration.basic_auth_password = sg_uri.password
   SuggestGrid::Configuration::BASE_URI = sg_uri.to_s
-  
+
 end
