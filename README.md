@@ -4,9 +4,10 @@
 
 First init db and seed sample movie data;
 
+```shell
 rake db:migrate
 rake db:seed
-
+```
 Get your connection url via signing up or installing Heroku addon.
 
 Ensure to add your connection url to one of the config files `development.rb` `test.rb` `production.rb` depending
