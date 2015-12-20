@@ -1,7 +1,8 @@
-PATH
-  remote: vendor/gems/SuggestGrid-Ruby
+GIT
+  remote: https://github.com/suggestgrid/suggestgrid-ruby.git
+  revision: 95869581e80e5f2603ea349b9464cfaf5984d62f
   specs:
-    suggest_grid (0.5)
+    suggest_grid (1.0)
       unirest (~> 1.1.2)
 
 GEM
