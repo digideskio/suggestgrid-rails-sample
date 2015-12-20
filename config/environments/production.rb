@@ -79,7 +79,7 @@ Rails.application.configure do
 
   config.suggestgrid_space = "movie_space_production"
 
-  sg_uri = URI(ENV['SUGGESTGRID_URL'])
+  sg_uri = URI(ENV['SUGGESTGRID_URL'] || 'your-connection-url') 
   SuggestGrid::Configuration.basic_auth_user_name = sg_uri.user
   SuggestGrid::Configuration.basic_auth_password = sg_uri.password
   SuggestGrid::Configuration::BASE_URI = sg_uri.to_s

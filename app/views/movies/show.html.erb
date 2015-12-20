@@ -15,7 +15,7 @@
       </div>
       <div class="row">
         <div class="col-md-12">
-          <h4>Personalised Similar Movies (Movies You May Like)</h4>
+          <h4>Recommended Similar Movies</h4>
           <hr>
           <% @movie.recommend_similar(current_or_guest_user, 12).each_slice(3).each do |group| %>
             <div class="row">
@@ -30,7 +30,7 @@
       </div>
     </div>
     <div class="col-md-3">
-      <h3>Similar Movies (Who viewed also...)</h3>
+      <h3>Similar Movies</h3>
       <hr>
       <% @movie.similar(5).each do |movie| %>
         <div class="row">
