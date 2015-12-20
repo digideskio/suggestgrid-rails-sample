@@ -13,7 +13,7 @@ class Movie < ActiveRecord::Base
       body.itemid = self.id
       SuggestGrid::ActionController.new.create_action(body, space, 'view')
     rescue Exception => e
-      logger.error "Exception while sending action  #{e}"
+      logger.error "Exception while sending action  #{e.response_body}"
     end
   end
 
@@ -27,7 +27,7 @@ class Movie < ActiveRecord::Base
       recommendations = SuggestGrid::RecommendationController.new.recommend_items(body, space, 'view')
       Movie.find(recommendations['recommendations']['itemids']) # fetch from db
     rescue Exception => e
-      logger.error "Exception while getting recommendations #{e}"
+      logger.error "Exception while getting recommendations #{e.response_body}"
       Movie.all.limit(size)
     end
   end
@@ -44,7 +44,7 @@ class Movie < ActiveRecord::Base
       recommendations = SuggestGrid::RecommendationController.new.recommend_items(body, space, 'view')
       Movie.find(recommendations['recommendations']['itemids']) # fetch from db
     rescue Exception => e
-      logger.error "Exception while getting similar recommendations #{e}"
+      logger.error "Exception while getting similar recommendations #{e.response_body}"
       Movie.all.limit(size)
     end
   end
@@ -59,7 +59,7 @@ class Movie < ActiveRecord::Base
       similars = SuggestGrid::SimilarityController.new.get_similar_items(body, self.id , space, 'view')
       Movie.find(similars['similars']['itemids']) # fetch from db
     rescue Exception => e
-      logger.error "Exception while getting similar items #{e}"
+      logger.error "Exception while getting similar items #{e.response_body}"
       Movie.all.limit(size)
     end
   end

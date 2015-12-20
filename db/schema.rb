@@ -14,21 +14,13 @@
 ActiveRecord::Schema.define(version: 20151024204807) do
 
   create_table "movies", force: :cascade do |t|
-    t.string   "genres"
+    t.string   "genres",       default: "{}"
     t.string   "title"
     t.string   "overview"
     t.string   "poster_path"
     t.date     "release_date"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  create_table "ratings", force: :cascade do |t|
-    t.integer  "userid"
-    t.integer  "itemid"
-    t.integer  "rating"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "users", force: :cascade do |t|
