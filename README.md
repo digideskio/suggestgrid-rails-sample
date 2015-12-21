@@ -10,8 +10,7 @@ rake db:seed
 ```
 Get your connection url via signing up or installing Heroku addon.
 
-Ensure to add your connection url to one of the config files `development.rb` `test.rb` `production.rb` depending
-on your configuration.
+Ensure to add your connection url at  `config/initializers/suggestgrid.rb`.
 
 ```ruby
   sg_uri = URI(ENV['SUGGESTGRID_URL'] || 'your-connection-url')
