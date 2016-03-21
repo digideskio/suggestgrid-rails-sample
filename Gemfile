@@ -54,7 +54,7 @@ end
 
 gem 'devise'
 
-#gem 'suggest_grid', git: 'https://github.com/suggestgrid/suggestgrid-ruby.git'
+gem 'suggest_grid', git: 'https://github.com/suggestgrid/suggestgrid-ruby.git'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'
