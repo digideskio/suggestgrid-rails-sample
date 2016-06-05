@@ -7,11 +7,7 @@ class Movie < ActiveRecord::Base
   # send action to SuggestGrid
   def create_action(user)
     begin
-      space = Rails.configuration.suggestgrid_space
-      body = SuggestGrid::Action.new
-      body.userid = user.id
-      body.itemid = self.id
-      SuggestGrid::ActionController.new.create_action(body, space, 'view')
+      SuggestGridClient.action.create_action(SuggestGrid::Action.new(user.id, self.id), 'view')
     rescue Exception => e
       logger.error "Exception while sending action  #{e}"
     end
@@ -20,12 +16,8 @@ class Movie < ActiveRecord::Base
   # this is behavioral recommendation special to given user
   def self.recommend(user, size = 3)
     begin
-      space = Rails.configuration.suggestgrid_space
-      body = SuggestGrid::RecommendItemsBody.new
-      body.userid = user.id # recommend specific to given user
-      body.size = size
-      recommendations = SuggestGrid::RecommendationController.new.recommend_items(body, space, 'view')
-      Movie.find(recommendations['recommendations']['itemids']) # fetch from db
+      items_response = SuggestGridClient.recommendation.recommend_items({user_id: user.id, size: size}, 'view')
+      Movie.find(items_response.items.collect { |item| item[:id] }) # fetch from db
     rescue Exception => e
       logger.error "Exception while getting recommendations #{e}"
       Movie.all.limit(size)
@@ -35,14 +27,8 @@ class Movie < ActiveRecord::Base
   # this is behavioral recommendation special to given user also takes into account related movie
   def recommend_similar(user, size = 3)
     begin
-      space = Rails.configuration.suggestgrid_space
-      body = SuggestGrid::RecommendItemsBody.new
-      body.userid = user.id # recommend specific to given user
-      body.size = size
-      body.similar_itemid = self.id # recommend movie similar to this movie
-      body.except = [self.id] # exclude this movie from recommendations
-      recommendations = SuggestGrid::RecommendationController.new.recommend_items(body, space, 'view')
-      Movie.find(recommendations['recommendations']['itemids']) # fetch from db
+      items_response = SuggestGridClient.recommendation.recommend_items({user_id: user.id, size: size, similar_itemid: self.id}, 'view')
+      Movie.find(items_response.items.collect { |item| item[:id] }) # fetch from db
     rescue Exception => e
       logger.error "Exception while getting similar recommendations #{e}"
       Movie.all.limit(size)
@@ -52,12 +38,8 @@ class Movie < ActiveRecord::Base
   # this is behavioral similarity works without providing user
   def similar(size = 3)
     begin
-      space = Rails.configuration.suggestgrid_space
-      body = SuggestGrid::SimilarItemsBody.new
-      body.size = size
-      body.except = [self.id] # exclude this movie from similars
-      similars = SuggestGrid::SimilarityController.new.get_similar_items(body, self.id , space, 'view')
-      Movie.find(similars['similars']['itemids']) # fetch from db
+      similarity_response = SuggestGridClient.similarity.get_similar_items({size: size, except: self.id}, self.id, 'view')
+      Movie.find(similarity_response.items.collect { |item| item[:id] }) # fetch from db
     rescue Exception => e
       logger.error "Exception while getting similar items #{e}"
       Movie.all.limit(size)
