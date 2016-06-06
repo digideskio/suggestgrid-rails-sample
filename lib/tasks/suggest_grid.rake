@@ -1,5 +1,5 @@
 namespace :suggestgrid do
-  desc 'Checks if given space and type/types are exists'
+  desc 'Checks if given type is exists else creates it'
   task initialize: :environment do
     begin
       SuggestGridClient.type.get_type('view')
