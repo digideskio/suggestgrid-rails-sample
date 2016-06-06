@@ -1,32 +1,32 @@
 <div class="col-md-12">
   <div class="row">
-      <div class="col-md-12">
-        <h3>Recommended For You</h3>
-          <hr/>
-          <% @recommended_movies.each_slice(4).each do |group| %>
-            <div class="row">
-                <% group.each do |movie| %>
+    <div class="col-md-12">
+      <h3>Recommended For You</h3>
+      <hr/>
+      <% @movies[:recommended].each_slice(4).each do |group| %>
+          <div class="row">
+            <% group.each do |movie| %>
                 <div class="col-sm-3 col-lg-3 col-md-3">
                   <%= render 'movie', {movie: movie, overview: true} %>
                 </div>
-                <% end %>
-            </div>
-          <% end %>
-      </div>
+            <% end %>
+          </div>
+      <% end %>
+    </div>
   </div>
   <div class="row">
-      <div class="col-md-12">
-        <h3>All Movies</h3>
-          <hr/>
-          <% @all_movies.each_slice(4).each do |group| %>
-            <div class="row">
-                <% group.each do |movie| %>
+    <div class="col-md-12">
+      <h3>All Movies</h3>
+      <hr/>
+      <% @movies[:all].each_slice(4).each do |group| %>
+          <div class="row">
+            <% group.each do |movie| %>
                 <div class="col-sm-3 col-lg-3 col-md-3">
                   <%= render 'movie', {movie: movie, overview: true} %>
                 </div>
-                <% end %>
-            </div>
-          <% end %>
-      </div>
+            <% end %>
+          </div>
+      <% end %>
+    </div>
   </div>
 </div>
